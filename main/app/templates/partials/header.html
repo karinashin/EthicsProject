@@ -1,43 +1,15 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-gray-dark text-white">
-  <div class="container">
-    <a class="text-white link-reset text-inherit pr-3" href="/"> Home </a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
+<nav class="navbar navbar-expand-lg navbar-dark bg-gray-dark text-white" style="background-color: rgb(255, 189, 24); height: 60px; display: flex; justify-content: center; align-items: center;">
+  <div class="d-flex justify-content-center align-items-center">
+    <a class="text-white link-reset text-inherit pr-3" href="/" style="font-size: 30px; text-align: center;"> got ethics? </a>
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Karina's Page
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="https://www.linkedin.com/in/karina-shin-37283322a/">
-              LinkedIn
-            </a>
-            <a class="dropdown-item" href="https://github.com/karinashin">
-              Github
-            </a>
-          </div>
-        </li>
-        {{#if session.user}}
-          <li class="nav-item p-2 pr-3">
-            <img src="{{ session.user.avatar_url }}" class="rounded mr-2" style="width:24px;height:24px;" />
-            {{ session.user.username }}
-          </li>
-          <li class="nav-item">
-            <a class="nav-link text-inherit" href="/auth/logout">
-              Logout
-            </a>
-          </li>
-        {{else}}
-          <!-- <li class="nav-item">
-            <a class="nav-link text-inherit" href="/auth/login/github">
-              Login with GitHub
-            </a>
-          </li> -->
-        {{/if}}
-      </ul>
-    </div>
+    <!-- <a class="btn btn-primary" style="background-color: rgb(255, 255, 255); width: 150px; height: 40px; font-size: 20px; text-align:center; color: rgb(255, 189, 24); outline-color: white;" href="/about"> <b> About Us </b></a> -->
+      <!-- <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button> -->
+  </div>
+  
+  <div class="d-flex justify-content-center align-items-center">
+    <!-- <a class="text-white link-reset text-inherit pr-3" href="/" style="font-size: 30px; text-align: center;"> got ethics? </a> -->
+    <a class="btn btn-primary" style="background-color: rgb(255, 255, 255); width: 150px; height: 40px; font-size: 20px; text-align:center; color: rgb(255, 189, 24); outline-color: white;" href="/about"> <b> About Us </b></a>
   </div>
 </nav>
