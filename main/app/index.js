@@ -3,6 +3,8 @@ const session = require("express-session");
 const handlebars = require("express-handlebars");
 const compression = require("compression");
 const logger = require("morgan");
+const bodyParser = require('body-parser');
+
 
 const config = require("../config");
 const paths = require("../config/paths");
