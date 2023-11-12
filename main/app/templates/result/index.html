@@ -5,15 +5,37 @@
         <p style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; background-color: rgb(255, 189, 24); width: 450px; height: 60px; font-size: 30px; color: white; text-align: center;"> userInputValue </p>
         <!-- <input type="text" id="userInput" name="userInput" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; background-color: rgb(255, 189, 24); width: 450px; height: 60px; font-size: 30px; color: white; text-align: center;" placeholder="Enter Your Ethical Question..."> -->
       </div>
-      <script>
+      <div id = "answerArea" class="mt-2 mb-4" style="background-color: rgb(255, 189, 24); width: 800px; margin: 0 auto; text-align: center;" >
+        <p style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; background-color: rgb(255, 189, 24); width: 450px; height: 60px; font-size: 30px; color: white; text-align: center;"> outputValue </p>
+      </div>
+      
+
+      <script type="module">
         // Retrieve the saved userInput from localStorage
         var userInputValue = localStorage.getItem('userInput');
         var typeValue = localStorage.getItem('type');
-        
+
         // Display the userInput on the page
         // document.getElementById('displayArea').innerText = userInputValue;
         var displayArea = document.getElementById('displayArea');
         displayArea.innerHTML = '<p style="font-family: \'Gill Sans\', \'Gill Sans MT\', Calibri, \'Trebuchet MS\', sans-serif; font-size: 30px; color: white;">' + userInputValue + " (" + typeValue + ") " +'</p>';
+
+        import { OpenAI } from '/openai/OpenAI.js'
+        console.log("impot done");
+        
+        const openAI = new OpenAI('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');
+
+        async function getAnswer(prompt) {
+          answer = await openAI.generateText(prompt,'gpt-3.5-turbo', max_tokens = 800);
+        }
+
+
+        var outputValue = getAnswer(userInputValue);
+        var answerArea = document.getElementById('answerArea');
+        console.log(outputValue);
+        answerArea.innerHTML = '<p style="font-family: \'Gill Sans\', \'Gill Sans MT\', Calibri, \'Trebuchet MS\', sans-serif; font-size: 30px; color: white;">' + outputValue + " (" + typeValue + ") " +'</p>';
+
+
       </script>
     </div>
   </div>
