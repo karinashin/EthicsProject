@@ -2,13 +2,12 @@
     <div class="container text-center py-5 mb-4">
       <!-- <img src="img/logo.png" class="w-100" style="max-width:120px;" /> -->
       <div id ="displayArea" class="mt-2 mb-4" style="background-color: rgb(255, 189, 24); width: 800px; margin: 0 auto; text-align: center;">
-        <p style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; background-color: rgb(255, 189, 24); width: 450px; height: 60px; font-size: 30px; color: white; text-align: center;"> userInputValue </p>
+        <p style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; background-color: rgb(255, 189, 24); width: 450px; height: 60px; font-size: 30px; color: white; text-align: center;"> <b> userInputValue </b> </p>
         <!-- <input type="text" id="userInput" name="userInput" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; background-color: rgb(255, 189, 24); width: 450px; height: 60px; font-size: 30px; color: white; text-align: center;" placeholder="Enter Your Ethical Question..."> -->
       </div>
-      <div id = "answerArea" class="mt-2 mb-4" style="background-color: rgb(255, 189, 24); width: 800px; margin: 0 auto; text-align: center;" >
-        <p style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; background-color: rgb(255, 189, 24); width: 450px; height: 60px; font-size: 30px; color: white; text-align: center;"> Waiting for answer... </p>
-      </div>
-      
+      <div id = "answerArea" class="mt-2 mb-2" style="background-color: lightgray; width: 800px; margin: 0 auto; display: flex; justify-content: center; text-align: center;" >
+        <p style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; background-color: lightgray; width: 450px; height: 60px; font-size: 30px; color: white;"> Waiting for answer... </p>
+      </div>   
 
       <script type="module">
         // Retrieve the saved userInput from localStorage
@@ -68,4 +67,6 @@
       </script>
     </div>
   </div>
-  
+  <div class="mt-3" style="display: flex; justify-content: center;">
+    <a class="btn btn-primary" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; margin: 30px; background-color: rgb(255, 189, 24); width: 200px; height: 50px; font-size: 20px; text-align: center; display: flex; justify-content: center; align-items: center;" href="/"> <b> New Question? </b> </a>
+  </div>
