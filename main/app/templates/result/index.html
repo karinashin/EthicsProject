@@ -6,7 +6,7 @@
         <!-- <input type="text" id="userInput" name="userInput" style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; background-color: rgb(255, 189, 24); width: 450px; height: 60px; font-size: 30px; color: white; text-align: center;" placeholder="Enter Your Ethical Question..."> -->
       </div>
       <div id = "answerArea" class="mt-2 mb-4" style="background-color: rgb(255, 189, 24); width: 800px; margin: 0 auto; text-align: center;" >
-        <p style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; background-color: rgb(255, 189, 24); width: 450px; height: 60px; font-size: 30px; color: white; text-align: center;"> outputValue </p>
+        <p style="font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; background-color: rgb(255, 189, 24); width: 450px; height: 60px; font-size: 30px; color: white; text-align: center;"> Waiting for answer... </p>
       </div>
       
 
@@ -20,20 +20,49 @@
         var displayArea = document.getElementById('displayArea');
         displayArea.innerHTML = '<p style="font-family: \'Gill Sans\', \'Gill Sans MT\', Calibri, \'Trebuchet MS\', sans-serif; font-size: 30px; color: white;">' + userInputValue + " (" + typeValue + ") " +'</p>';
 
-        import { OpenAI } from '/openai/OpenAI.js'
-        console.log("impot done");
+      </script>
+
+
+      <script>
+        var topic = localStorage.getItem('userInput');
+        var side = localStorage.getItem('type');
         
-        const openAI = new OpenAI('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');
-
-        async function getAnswer(prompt) {
-          answer = await openAI.generateText(prompt,'gpt-3.5-turbo', max_tokens = 800);
-        }
-
-
-        var outputValue = getAnswer(userInputValue);
         var answerArea = document.getElementById('answerArea');
-        console.log(outputValue);
-        answerArea.innerHTML = '<p style="font-family: \'Gill Sans\', \'Gill Sans MT\', Calibri, \'Trebuchet MS\', sans-serif; font-size: 30px; color: white;">' + outputValue + " (" + typeValue + ") " +'</p>';
+
+
+        const apiKey = "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";
+        const apiUrl = 'https://api.openai.com/v1/chat/completions';
+
+        inputData = {
+          model: 'gpt-3.5-turbo',
+          messages: [
+            {role: 'system', content: 'You are an impartial data source for ethical topics.'},
+            {role: 'user', content: `Write one sentence arguing ${side} ${topic}.`},
+          ],
+        };
+
+        fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${apiKey}`,
+          },
+          body: JSON.stringify(inputData),
+        })
+        .then(response => response.json())
+        .then(data => {
+          // Handle the response data here
+          answer = data.choices[0].message.content;
+          console.log('Answer: ', answer);
+          answerArea.innerHTML = '<p style="font-family: \'Gill Sans\', \'Gill Sans MT\', Calibri, \'Trebuchet MS\', sans-serif; font-size: 30px; color: white;">' + answer +'</p>';
+
+          
+        })
+        .catch(error => {
+          // Handle errors here
+          console.error('Error:', error);
+        });
+
 
 
       </script>
