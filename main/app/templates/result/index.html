@@ -28,15 +28,14 @@
         
         var answerArea = document.getElementById('answerArea');
 
-
-        const apiKey = "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";
+        const apiKey ='';
         const apiUrl = 'https://api.openai.com/v1/chat/completions';
 
         inputData = {
           model: 'gpt-3.5-turbo',
           messages: [
             {role: 'system', content: 'You are an impartial data source for ethical topics.'},
-            {role: 'user', content: `Write one sentence arguing ${side} ${topic}.`},
+            {role: 'user', content: `The topic is ${topic}. Write 3 points arguing ${side} this topic. Give me the answer in HTML format`},
           ],
         };
 
@@ -54,7 +53,6 @@
           answer = data.choices[0].message.content;
           console.log('Answer: ', answer);
           answerArea.innerHTML = '<p style="font-family: \'Gill Sans\', \'Gill Sans MT\', Calibri, \'Trebuchet MS\', sans-serif; font-size: 30px; color: white;">' + answer +'</p>';
-
           
         })
         .catch(error => {
